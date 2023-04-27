@@ -1,0 +1,46 @@
+{% extends 'app/base.html' %}
+{% block content %}
+{% load static %}
+
+    <header>
+        <div id="header">
+            <title>Exchange BTC</title>
+            <h1 class="title">Exchange BTC</h1>
+            <h2 class="subtitle">Below you can find your BTC and USD balance</h2>
+        </div>
+    </header>
+    <body>
+        <div id="login_info">
+            {% if user.is_authenticated %}
+                <p class="menu">Welcome {{ user.username }} - <a href="{% url 'order_list' %}">Order list</a> - <a href="{% url 'transaction_list' %}">Transaction list</a> - <a href="{% url 'logout' %}">Log Out</a> </p>
+            {% endif %}
+        </div>
+        <div id="order">
+        {% if user.is_authenticated %}
+            <a href="{% url 'create_order' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create an Order</a>
+        {% endif %}
+        </div>
+    </body>
+    {% if user.is_authenticated %}
+        <table class="table">
+            <thead> 
+                <tr>
+                    <th>BTC balance</th>
+                    <th>USD balance</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{{balance.btc_balance}}</td>
+                <td>{{balance.usd_balance}} $</td>
+            </tr>
+            </tbody>
+        </table>
+        {% else %}
+        <div id="login_info">
+          <p>You are not logged in. Please <a href="{% url 'login' %}">Log In</a></p>
+          <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        </div>
+        {% endif %}
+{% endblock %}
+</html>

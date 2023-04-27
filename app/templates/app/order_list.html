@@ -1,0 +1,58 @@
+{% extends 'app/base.html' %}
+{% block content %}
+{% load static %}
+
+    <header>
+        <div id="header">
+            <title>Exchange BTC</title>
+            <h1 class="title">Exchange BTC</h1>
+            <h2 class="subtitle">Below you can find the order list </h2>
+        </div>
+    </header>
+    <body>
+        <div id="login_info">
+            {% if user.is_authenticated %}
+                <p class="menu">Welcome {{ user.username }} - <a href="{% url 'show_balance' %}">Control your balance</a> - <a href="{% url 'transaction_list' %}">Transaction list</a> - <a href="{% url 'logout' %}">Log Out</a></p>
+            {% endif %}
+        </div>
+        <div id="order">
+        {% if user.is_authenticated %}
+            <a href="{% url 'create_order' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create an order</a>
+        {% endif %}
+        </div>
+    </body>
+    {% if user.is_authenticated %}
+        <table class="table">
+            <thead> 
+                <tr>
+                    <th>User</th>
+                    <th>Order type</th>
+                    <th>Order status</th>
+                    <th>Btc amount</th>
+                    <th>Btc unit price</th>
+                    <th>Total price</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for order in orders %}
+            <tr>
+                <td>{{order.author}}</td>
+                <td>{{order.order_type}}</td>
+                <td>{{order.status}}</td>
+                <td>{{order.btc_amount}}</td>
+                <td>{{order.btc_unit_price}} $</td>
+                <td>{{order.total_price}} $</td>
+                <td>{{order.datetime}}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <div id="login_info">
+          <p>You are not logged in. Please <a href="{% url 'login' %}">Log In</a></p>
+          <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        </div>
+        {% endif %}
+{% endblock %}
+</html>

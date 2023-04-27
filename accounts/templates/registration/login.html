@@ -1,0 +1,18 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+    <header>
+        <div id="header">
+            <title>Exchange BTC</title>
+            <h1 class="title">Exchange BTC</h1>
+        </div>
+    </header>
+    <div id="login">
+    <h2>Login</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+    <button type="submit">Log In</button>
+    </form>
+    </div>
+{% endblock %}

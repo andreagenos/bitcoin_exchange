@@ -1,0 +1,33 @@
+{% extends 'app/base.html' %}
+{% block content %}
+{% load static %}
+
+    <header>
+        <div id="header">
+            <title>Exchange BTC</title>
+            <h1 class="title">Exchange BTC</h1>
+            <h2 class="subtitle">Place a Buy or a Sell Order</h2>
+        </div>
+    </header>
+
+    {% if user.is_authenticated %}
+    <p class="menu">Welcome {{ user.username }} - <a href="{% url 'show_balance' %}">Control your balance</a> - <a href="{% url 'transaction_list' %}">Transaction list</a> - <a href="{% url 'logout' %}">Log Out</a></p>
+    
+    <h3>New Order</h3>
+     <form method="POST" class="order-form">{% csrf_token %}
+         {{ form.as_p }}
+         <button type="submit" class="save btn btn-default">Save</button>
+     </form>
+
+     <div id="order">
+     <a href="{% url 'order_list' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Order list</a>
+    </div>
+
+     {% else %}
+     <div id="login_info">
+        <p>You are not logged in. Please <a href="{% url 'login' %}">Log In</a></p>
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+      </div>
+    {% endif %}
+{% endblock %}
+</html>

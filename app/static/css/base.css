@@ -1,0 +1,86 @@
+#register{
+    text-align: center;
+    font-family: "Times New Roman", Times, serif;    
+}
+#login{
+    text-align: center;
+    font-family: "Times New Roman", Times, serif; 
+}
+body {
+    background-image: url('images/btc.jpg');
+    background-size: 98%;
+    
+}
+.title {
+    color: white;
+    font-family: "Times New Roman", Times, serif;
+    text-align: center;
+    font-size: 48px;
+    background-color: rgb(198, 188, 58);
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding: 20px 40px;
+}
+
+.subtitle {
+    color: #0c130f;
+    font-family: "Times New Roman", Times, serif;
+    font-style: italic;
+    font-size: 22px;
+    text-align: center;
+}
+
+.staff {
+    font-family: "Times New Roman", Times, serif;
+    padding-left: 0.2cm;
+    padding-bottom: 0.5;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.menu {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 18px;
+    position: absolute;
+    text-align: center;
+    bottom: 0px;
+    width: 100%;
+}
+
+#login_info {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 20px;
+    position: absolute;
+    text-align: center;
+    bottom: 0px;
+    width: 100%;
+}
+
+#login_info.menu {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 20px;
+    position: absolute;
+    text-align: center;
+    bottom: 15px;
+    width: 100%;
+}
+
+#order {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 30px;
+    position: absolute;
+    text-align: center;
+    bottom: 40px;
+    width: 100%;
+    
+}
+
+.order-form {
+    text-align: center;
+    padding: 15px;
+}
+
+h3 {
+    text-align: center; 
+    font-weight: bold;
+}
